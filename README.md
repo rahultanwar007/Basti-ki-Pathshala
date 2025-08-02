@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Basti Ki Pathshala – Volunteer Management System
+Basti Ki Pathshala is a simple web app built to manage volunteer registrations for a community education initiative. It allows new volunteers to register through a form, and admins can view all the registered volunteers through a protected dashboard.
 
-## Getting Started
+This project is made using Next.js (App Router), MongoDB, and Tailwind CSS. It focuses on clean design, real-world functionality, and user-friendly experience.
 
-First, run the development server:
+Features
+For Volunteers:
+Fill out a short form with your name, email, phone number, and address.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Get instant feedback on successful registration or any issues (like duplicate email or invalid inputs).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+For Admin:
+A basic login page to access the admin dashboard (password protected using sessionStorage).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+View all volunteers in a clean table format.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+See volunteer details like contact info and registration date.
 
-## Learn More
+Option to refresh the list or add more volunteers.
 
-To learn more about Next.js, take a look at the following resources:
+Tech Stack
+Next.js 14 (App Router)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+MongoDB with Mongoose
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Tailwind CSS for styling
 
-## Deploy on Vercel
+API Routes for handling form submissions and data fetching
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+How it Works
+A volunteer registers through /register.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Their details are stored in MongoDB after validation.
+
+Admin logs in via /admin/login using a password (default: admin123).
+
+Admin dashboard at /admin shows all registered volunteers.
+
+Folder Structure Overview
+app/api/volunteers/route.ts → Handles POST and GET requests for volunteer data.
+
+components/ui → Contains reusable UI components like buttons and stat cards.
+
+models/Volunteer.ts → Mongoose schema for storing volunteer details.
+
+lib/mongodb.ts → MongoDB connection logic.
+
+app/(routes) → Pages like register, admin login, and dashboard.
