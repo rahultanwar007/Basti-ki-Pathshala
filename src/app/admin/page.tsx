@@ -47,7 +47,7 @@ export default function AdminPage() {
       const data = await res.json();
       setVolunteers(data);
       setError('');
-    } catch (err) {
+    } catch {
       setError('Something went wrong while fetching volunteers.');
     } finally {
       setLoading(false);
